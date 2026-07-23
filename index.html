@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090b10">
+  <title>Windows Clash 使用教程｜下载、订阅导入、节点选择与系统代理设置</title>
+  <meta name="description" content="Windows 10/11 Clash 中文使用教程：从客户端下载、安装、导入订阅，到选择香港、日本、新加坡节点、开启系统代理及常见故障排查。边界云 LVPN 新手指南。">
+  <meta name="keywords" content="Clash Windows,Clash Windows 下载,Clash Windows 教程,Clash 中文教程,Clash 使用教程,Clash 安装教程,Clash 订阅导入,Clash 添加订阅,Clash 系统代理,Clash 节点选择,Clash 无法上网,Clash 连接失败,Clash 订阅更新,Windows 11 Clash,Windows 10 Clash,边界云加速器,LVPN">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="边界云加速器 · LVPN">
+  <meta property="og:title" content="Windows Clash 新手使用教程｜3 分钟完成配置">
+  <meta property="og:description" content="从下载、导入订阅到开启系统代理，一篇看懂 Windows Clash 的完整配置流程。">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"HowTo",
+        "name":"Windows Clash 下载、订阅导入与连接教程",
+        "description":"在 Windows 10 或 Windows 11 中下载安装 Clash、导入边界云订阅并开启系统代理。",
+        "totalTime":"PT3M",
+        "step":[
+          {"@type":"HowToStep","name":"注册并获取订阅","text":"登录边界云用户中心，购买套餐后复制专属订阅地址。"},
+          {"@type":"HowToStep","name":"下载 Windows 客户端","text":"从边界云下载中心获取 Windows Clash 客户端并完成安装。"},
+          {"@type":"HowToStep","name":"导入 Clash 订阅","text":"在订阅或配置页面粘贴订阅地址并更新配置。"},
+          {"@type":"HowToStep","name":"选择节点并连接","text":"选择自动或低延迟节点，然后开启系统代理。"}
+        ]
+      },
+      {
+        "@type":"FAQPage",
+        "mainEntity":[
+          {"@type":"Question","name":"Clash 显示已连接，为什么浏览器仍然无法上网？","acceptedAnswer":{"@type":"Answer","text":"确认系统代理已开启，检查订阅是否过期并切换其他可用节点。"}},
+          {"@type":"Question","name":"Windows 10 和 Windows 11 都可以使用 Clash 吗？","acceptedAnswer":{"@type":"Answer","text":"可以，本教程适用于 Windows 10 与 Windows 11。"}},
+          {"@type":"Question","name":"Clash 订阅链接应该粘贴在哪里？","acceptedAnswer":{"@type":"Answer","text":"在客户端的订阅、配置或 Profiles 页面粘贴并下载配置。"}},
+          {"@type":"Question","name":"Clash 全局代理和规则模式有什么区别？","acceptedAnswer":{"@type":"Answer","text":"规则模式按目标自动分流；全局模式会让大部分连接都经过代理。"}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <main>
+    <header class="site-header">
+      <a class="brand" href="https://www.lvpn.cc/" aria-label="边界云加速器官网">
+        <span class="brand-mark">边</span>
+        <span><strong>边界云</strong><small>LVPN GUIDE</small></span>
+      </a>
+      <nav aria-label="主导航">
+        <a href="#tutorial">安装教程</a>
+        <a href="#mode">模式说明</a>
+        <a href="#faq">常见问题</a>
+        <a class="nav-cta" href="https://www.lvpn.cc/plans">查看套餐</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span>Windows 10 / 11 · 新手友好</div>
+        <h1>Windows Clash<br><em>完整使用教程</em></h1>
+        <p class="hero-lead">从 Clash 客户端下载、安装、订阅导入，到选择节点和开启系统代理，跟着四个步骤完成首次连接。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#tutorial">开始配置教程 <span>→</span></a>
+          <a class="button secondary" href="https://www.lvpn.cc/downloads">下载 Windows 客户端</a>
+        </div>
+        <ul class="trust-list"><li>约 3 分钟</li><li>中文图文步骤</li><li>常见问题排查</li></ul>
+      </div>
+
+      <div class="hero-panel" aria-label="Clash 配置流程预览">
+        <div class="window-top"><div class="window-dots"><span></span><span></span><span></span></div><span>Clash 快速配置</span><span class="secure">安全提示</span></div>
+        <div class="flow-line"><span class="flow-index">1</span><div><small>SUBSCRIPTION</small><strong>获取专属订阅地址</strong></div><span class="flow-state done">已准备</span></div>
+        <div class="flow-line active"><span class="flow-index">2</span><div><small>IMPORT PROFILE</small><strong>导入 Clash 配置</strong></div><span class="flow-state">进行中</span></div>
+        <div class="flow-line"><span class="flow-index">3</span><div><small>SELECT PROXY</small><strong>选择低延迟节点</strong></div><span class="latency">38 ms</span></div>
+        <div class="flow-line"><span class="flow-index">4</span><div><small>SYSTEM PROXY</small><strong>开启系统代理</strong></div><span class="toggle"><i></i></span></div>
+        <div class="panel-note"><span>!</span>不要公开你的订阅链接，它相当于专属连接凭证。</div>
+      </div>
+    </section>
+
+    <section class="quick-nav" aria-label="页面目录">
+      <span>本页目录</span><a href="#tutorial">下载安装</a><a href="#import">导入订阅</a><a href="#mode">代理模式</a><a href="#troubleshooting">故障排查</a><a href="#faq">常见问题</a>
+    </section>
+
+    <section class="section" id="tutorial">
+      <div class="section-heading">
+        <span class="kicker">QUICK START</span>
+        <h2>Windows Clash 怎么用？</h2>
+        <p>不需要修改复杂参数。准备好 Windows 电脑和边界云订阅，按下面顺序完成安装与连接。</p>
+      </div>
+      <div class="steps">
+        <article class="step-card">
+          <div class="step-top"><span>01</span><i></i></div><h3>注册并获取订阅</h3>
+          <p>登录边界云用户中心，选择流量套餐后复制专属订阅地址。订阅链接等同于账户凭证，请勿公开分享。</p>
+          <a href="https://www.lvpn.cc/register">前往边界云注册 ↗</a>
+        </article>
+        <article class="step-card">
+          <div class="step-top"><span>02</span><i></i></div><h3>下载 Windows 客户端</h3>
+          <p>前往边界云下载中心，获取适用于 Windows 10 / Windows 11 的 Clash 客户端并完成安装。</p>
+          <a href="https://www.lvpn.cc/downloads">下载 Windows 客户端 ↗</a>
+        </article>
+        <article class="step-card" id="import">
+          <div class="step-top"><span>03</span><i></i></div><h3>导入 Clash 订阅</h3>
+          <p>打开 Clash，在订阅、配置或 Profiles 页面粘贴订阅地址，点击导入或更新，等待节点列表出现。</p>
+        </article>
+        <article class="step-card">
+          <div class="step-top"><span>04</span><i></i></div><h3>选择节点并连接</h3>
+          <p>新手建议先选择自动线路，也可以按延迟选择香港、日本或新加坡节点，然后开启系统代理。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-section" id="mode">
+      <div>
+        <span class="kicker">PROXY MODE</span>
+        <h2>规则模式还是全局模式？</h2>
+        <p class="section-copy">对大多数用户，推荐日常使用规则模式。它会自动判断哪些连接需要代理，国内网站保持直连，兼顾速度和流量消耗。</p>
+        <div class="mode-list">
+          <article class="mode recommended"><div><span class="mode-icon">分</span><div><h3>规则模式</h3><p>按规则自动分流，适合网页、AI 工具和日常办公。</p></div></div><span class="tag">推荐</span></article>
+          <article class="mode"><div><span class="mode-icon">全</span><div><h3>全局模式</h3><p>大部分流量经过代理，适合临时测试和问题排查。</p></div></div></article>
+          <article class="mode"><div><span class="mode-icon">直</span><div><h3>直连模式</h3><p>关闭代理转发，恢复本地网络的直接连接。</p></div></div></article>
+        </div>
+      </div>
+      <aside class="keyword-panel">
+        <span class="terminal-title">CLASH CHECKLIST</span>
+        <div class="check-row"><span>01</span><p>订阅状态</p><strong>有效</strong></div>
+        <div class="check-row"><span>02</span><p>节点延迟</p><strong>38 ms</strong></div>
+        <div class="check-row"><span>03</span><p>系统代理</p><strong>已开启</strong></div>
+        <div class="check-row"><span>04</span><p>代理模式</p><strong>规则</strong></div>
+        <p class="terminal-foot">连接异常时，优先逐项检查以上四个状态。</p>
+      </aside>
+    </section>
+
+    <section class="section" id="troubleshooting">
+      <div class="section-heading row-heading"><div><span class="kicker">TROUBLESHOOTING</span><h2>Clash 常见故障排查</h2></div><p>“已连接但无法上网”“订阅更新失败”“节点延迟高”通常可以通过下面的顺序快速定位。</p></div>
+      <div class="trouble-grid">
+        <article><span>01</span><h3>检查系统代理</h3><p>确认系统代理开关已开启，避免与其他代理软件同时运行。</p></article>
+        <article><span>02</span><h3>更新订阅配置</h3><p>检查套餐是否到期、流量是否用完以及订阅链接是否失效。</p></article>
+        <article><span>03</span><h3>更换可用节点</h3><p>测试香港、日本、新加坡节点，优先选择低延迟、低负载线路。</p></article>
+        <article><span>04</span><h3>重启客户端</h3><p>完全退出 Clash 后重新打开，必要时重启电脑并检查网络设置。</p></article>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="section-heading"><span class="kicker">FAQ</span><h2>Clash Windows 常见问题</h2><p>覆盖安装、订阅、节点、系统代理和连接失败等常见搜索问题。</p></div>
+      <div class="faq-list">
+        <details open><summary><span>01</span>Clash 显示已连接，为什么浏览器仍然无法上网？<i>＋</i></summary><p>先确认系统代理已开启，再检查订阅是否过期、节点是否可用。可以切换另一个节点后重试。</p></details>
+        <details><summary><span>02</span>Windows 10 和 Windows 11 都可以使用 Clash 吗？<i>＋</i></summary><p>可以。本教程适用于 Windows 10 与 Windows 11，请优先使用下载中心提供的当前版本。</p></details>
+        <details><summary><span>03</span>Clash 订阅链接应该粘贴在哪里？<i>＋</i></summary><p>一般在客户端的订阅、配置或 Profiles 页面，粘贴后点击导入或更新。</p></details>
+        <details><summary><span>04</span>香港、日本、新加坡节点应该怎么选？<i>＋</i></summary><p>优先选择延迟低、负载低的节点，实际速度还会受到本地网络和高峰时段影响。</p></details>
+        <details><summary><span>05</span>Clash 全局代理和规则模式有什么区别？<i>＋</i></summary><p>规则模式会自动分流，更适合日常使用；全局模式会让大部分连接都经过代理。</p></details>
+        <details><summary><span>06</span>如何更新 Clash 订阅和节点列表？<i>＋</i></summary><p>进入订阅或配置页面，找到当前订阅并点击更新。不要将完整订阅地址发送到公开 Issue。</p></details>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div><span class="kicker">READY TO CONNECT?</span><h2>准备开始使用边界云？</h2><p>查看流量套餐，获取订阅后按照本教程完成 Windows Clash 配置。</p></div>
+      <div class="cta-actions"><a class="button light" href="https://www.lvpn.cc/register">立即注册 →</a><a class="button outline-light" href="https://www.lvpn.cc/plans">查看套餐</a></div>
+    </section>
+
+    <footer>
+      <a class="brand footer-brand" href="https://www.lvpn.cc/"><span class="brand-mark">边</span><span><strong>边界云加速器</strong><small>Encrypted · Routed · Delivered</small></span></a>
+      <p>本教程中的 Clash 为第三方开源客户端。请遵守所在地法律法规及相关软件许可协议。</p>
+      <div><a href="https://www.lvpn.cc/">官方网站</a><a href="https://www.lvpn.cc/downloads">下载中心</a><a href="https://www.lvpn.cc/help">帮助中心</a><a href="https://t.me/lvpn_support">联系客服</a></div>
+    </footer>
+  </main>
+</body>
+</html>
