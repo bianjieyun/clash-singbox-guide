@@ -4,15 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#090b10">
-  <title>Windows Clash 使用教程｜下载、订阅导入、节点选择与系统代理设置</title>
+  <title>Windows Clash 使用教程｜下载、订阅导入、节点选择与系统代理设置-边界云加速器</title>
   <meta name="description" content="Windows 10/11 Clash 中文使用教程：从客户端下载、安装、导入订阅，到选择香港、日本、新加坡节点、开启系统代理及常见故障排查。边界云 LVPN 新手指南。">
   <meta name="keywords" content="Clash Windows,Clash Windows 下载,Clash Windows 教程,Clash 中文教程,Clash 使用教程,Clash 安装教程,Clash 订阅导入,Clash 添加订阅,Clash 系统代理,Clash 节点选择,Clash 无法上网,Clash 连接失败,Clash 订阅更新,Windows 11 Clash,Windows 10 Clash,边界云加速器,LVPN">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:site_name" content="边界云加速器 · LVPN">
-  <meta property="og:title" content="Windows Clash 新手使用教程｜3 分钟完成配置">
+  <meta property="og:title" content="Windows Clash 使用教程｜下载、订阅导入、节点选择与系统代理设置-边界云加速器">
   <meta property="og:description" content="从下载、导入订阅到开启系统代理，一篇看懂 Windows Clash 的完整配置流程。">
+  <link rel="icon" type="image/png" href="./assets/brand/lvpn-globe.png">
   <link rel="stylesheet" href="./assets/style.css">
   <script type="application/ld+json">
   {
@@ -22,12 +23,17 @@
         "@type":"HowTo",
         "name":"Windows Clash 下载、订阅导入与连接教程",
         "description":"在 Windows 10 或 Windows 11 中下载安装 Clash、导入边界云订阅并开启系统代理。",
-        "totalTime":"PT3M",
+        "totalTime":"PT5M",
         "step":[
-          {"@type":"HowToStep","name":"注册并获取订阅","text":"登录边界云用户中心，购买套餐后复制专属订阅地址。"},
-          {"@type":"HowToStep","name":"下载 Windows 客户端","text":"从边界云下载中心获取 Windows Clash 客户端并完成安装。"},
+          {"@type":"HowToStep","name":"下载 Windows 客户端","text":"从边界云下载中心获取适用于 Windows 10 或 Windows 11 的 Clash Verge 客户端。"},
+          {"@type":"HowToStep","name":"安装 Clash Verge","text":"打开安装包，按安装向导完成安装并首次启动客户端。"},
+          {"@type":"HowToStep","name":"登录边界云用户中心","text":"登录用户中心，确认套餐有效并进入订阅详情。"},
+          {"@type":"HowToStep","name":"获取 Clash Meta 订阅","text":"选择 Clash Meta 并复制专属订阅地址。"},
           {"@type":"HowToStep","name":"导入 Clash 订阅","text":"在订阅或配置页面粘贴订阅地址并更新配置。"},
-          {"@type":"HowToStep","name":"选择节点并连接","text":"选择自动或低延迟节点，然后开启系统代理。"}
+          {"@type":"HowToStep","name":"更新订阅配置","text":"将订阅设为当前配置并点击刷新更新节点列表。"},
+          {"@type":"HowToStep","name":"选择节点","text":"进入代理页面测速并选择自动或低延迟节点。"},
+          {"@type":"HowToStep","name":"开启系统代理","text":"选择规则模式并打开系统代理开关。"},
+          {"@type":"HowToStep","name":"验证连接","text":"打开浏览器验证网页访问并观察客户端流量。"}
         ]
       },
       {
@@ -36,7 +42,8 @@
           {"@type":"Question","name":"Clash 显示已连接，为什么浏览器仍然无法上网？","acceptedAnswer":{"@type":"Answer","text":"确认系统代理已开启，检查订阅是否过期并切换其他可用节点。"}},
           {"@type":"Question","name":"Windows 10 和 Windows 11 都可以使用 Clash 吗？","acceptedAnswer":{"@type":"Answer","text":"可以，本教程适用于 Windows 10 与 Windows 11。"}},
           {"@type":"Question","name":"Clash 订阅链接应该粘贴在哪里？","acceptedAnswer":{"@type":"Answer","text":"在客户端的订阅、配置或 Profiles 页面粘贴并下载配置。"}},
-          {"@type":"Question","name":"Clash 全局代理和规则模式有什么区别？","acceptedAnswer":{"@type":"Answer","text":"规则模式按目标自动分流；全局模式会让大部分连接都经过代理。"}}
+          {"@type":"Question","name":"Clash 全局代理和规则模式有什么区别？","acceptedAnswer":{"@type":"Answer","text":"规则模式按目标自动分流；全局模式会让大部分连接都经过代理。"}},
+          {"@type":"Question","name":"边界云加速器的官方网站是什么？","acceptedAnswer":{"@type":"Answer","text":"边界云当前仅有 www.bianjiecloud.com 与 www.lvpn.cc 两个官方网站，其他相似域名请谨慎识别。"}}
         ]
       }
     ]
@@ -47,13 +54,14 @@
   <main>
     <header class="site-header">
       <a class="brand" href="https://www.lvpn.cc/" aria-label="边界云加速器官网">
-        <span class="brand-mark">边</span>
+        <span class="brand-mark"><img src="./assets/brand/lvpn-globe.png" alt=""></span>
         <span><strong>边界云</strong><small>LVPN GUIDE</small></span>
       </a>
       <nav aria-label="主导航">
         <a href="#tutorial">安装教程</a>
         <a href="#mode">模式说明</a>
         <a href="#faq">常见问题</a>
+        <a href="#official">官网防伪</a>
         <a class="nav-cta" href="https://www.lvpn.cc/plans">查看套餐</a>
       </nav>
     </header>
@@ -62,12 +70,12 @@
       <div class="hero-copy">
         <div class="eyebrow"><span class="status-dot"></span>Windows 10 / 11 · 新手友好</div>
         <h1>Windows Clash<br><em>完整使用教程</em></h1>
-        <p class="hero-lead">从 Clash 客户端下载、安装、订阅导入，到选择节点和开启系统代理，跟着四个步骤完成首次连接。</p>
+        <p class="hero-lead">从 Clash 客户端下载、安装、后台获取订阅，到导入配置、选择节点和开启系统代理，跟着九个步骤完成首次连接。</p>
         <div class="hero-actions">
           <a class="button primary" href="#tutorial">开始配置教程 <span>→</span></a>
           <a class="button secondary" href="https://www.lvpn.cc/downloads">下载 Windows 客户端</a>
         </div>
-        <ul class="trust-list"><li>约 3 分钟</li><li>中文图文步骤</li><li>常见问题排查</li></ul>
+        <ul class="trust-list"><li>约 5 分钟</li><li>九步中文图解</li><li>常见问题排查</li></ul>
       </div>
 
       <div class="hero-panel" aria-label="Clash 配置流程预览">
@@ -80,8 +88,24 @@
       </div>
     </section>
 
+    <section class="official-notice" id="official" aria-labelledby="official-title">
+      <div class="official-logo">
+        <img src="./assets/brand/lvpn-logo.png" alt="LVPN 边界云加速官方 Logo">
+      </div>
+      <div class="official-copy">
+        <span class="kicker">OFFICIAL WEBSITE · 官网防伪</span>
+        <h2 id="official-title">边界云目前仅有两个官方网站</h2>
+        <p>请核对浏览器地址栏中的完整域名。不要在相似域名、搜索广告落地页或陌生人发送的页面中输入账号、密码、付款信息和订阅链接。</p>
+        <div class="official-links">
+          <a href="https://www.bianjiecloud.com/" rel="noopener"><span>官方主站 01</span><strong>www.bianjiecloud.com</strong><i>访问官网 ↗</i></a>
+          <a href="https://www.lvpn.cc/" rel="noopener"><span>官方主站 02</span><strong>www.lvpn.cc</strong><i>访问官网 ↗</i></a>
+        </div>
+      </div>
+      <div class="official-seal"><span>✓</span><strong>ONLY 2</strong><small>认准两个官方域名</small></div>
+    </section>
+
     <section class="quick-nav" aria-label="页面目录">
-      <span>本页目录</span><a href="#tutorial">下载安装</a><a href="#import">导入订阅</a><a href="#mode">代理模式</a><a href="#troubleshooting">故障排查</a><a href="#faq">常见问题</a>
+      <span>本页目录</span><a href="#official">官网防伪</a><a href="#tutorial">快速开始</a><a href="#details">详细图解</a><a href="#mode">代理模式</a><a href="#troubleshooting">故障排查</a><a href="#faq">常见问题</a>
     </section>
 
     <section class="section" id="tutorial">
@@ -101,13 +125,212 @@
           <p>前往边界云下载中心，获取适用于 Windows 10 / Windows 11 的 Clash 客户端并完成安装。</p>
           <a href="https://www.lvpn.cc/downloads">下载 Windows 客户端 ↗</a>
         </article>
-        <article class="step-card" id="import">
+        <article class="step-card">
           <div class="step-top"><span>03</span><i></i></div><h3>导入 Clash 订阅</h3>
           <p>打开 Clash，在订阅、配置或 Profiles 页面粘贴订阅地址，点击导入或更新，等待节点列表出现。</p>
         </article>
         <article class="step-card">
           <div class="step-top"><span>04</span><i></i></div><h3>选择节点并连接</h3>
           <p>新手建议先选择自动线路，也可以按延迟选择香港、日本或新加坡节点，然后开启系统代理。</p>
+        </article>
+      </div>
+
+      <div class="detail-guide" id="details">
+        <div class="detail-intro">
+          <div><span class="kicker">VISUAL WALKTHROUGH</span><h2>照着界面，一步一步操作</h2></div>
+          <p>下面以 Windows 版 Clash Verge 为例，从下载到连接验证完整演示。真实截图中的账号、订阅链接、二维码和日期均已脱敏；示意界面会单独标注。</p>
+        </div>
+
+        <article class="detail-step">
+          <div class="detail-copy">
+            <span class="detail-number">步骤 01 · DOWNLOAD</span>
+            <h3>下载 Windows 客户端</h3>
+            <ol>
+              <li>打开边界云官网的“下载”页面。</li>
+              <li>找到 Windows / Clash Verge 客户端。</li>
+              <li>普通 Intel、AMD 电脑选择 x64 安装版。</li>
+              <li>下载完成后，在浏览器下载列表中打开安装文件。</li>
+            </ol>
+            <div class="notice"><strong>下载提醒</strong><span>只使用边界云下载中心或 Clash Verge Rev 官方发布页，不要从网盘、论坛或陌生群组下载安装包。</span></div>
+          </div>
+          <figure class="screenshot-slot">
+            <div class="shot-toolbar"><span></span><span></span><span></span><small>界面示意 · 非真实截图</small></div>
+            <div class="download-mock">
+              <div class="mock-label">WINDOWS CLIENT</div>
+              <h4>Clash Verge for Windows</h4>
+              <p>适用于 Windows 10 / 11</p>
+              <div class="download-options"><span class="selected"><b>x64</b>普通电脑推荐</span><span><b>ARM64</b>ARM 设备</span></div>
+              <div class="mock-download">下载 Windows 安装版 <b>↓</b></div>
+            </div>
+            <figcaption>普通 Windows 电脑一般选择 x64；ARM64 仅用于 ARM 架构设备。</figcaption>
+          </figure>
+        </article>
+
+        <article class="detail-step reverse">
+          <div class="detail-copy">
+            <span class="detail-number">步骤 02 · INSTALL</span>
+            <h3>完成安装并首次启动</h3>
+            <ol>
+              <li>双击下载完成的安装文件。</li>
+              <li>Windows 弹出确认窗口时核对应用名称与来源。</li>
+              <li>按安装向导完成安装，不需要修改高级选项。</li>
+              <li>安装完成后启动 Clash Verge。</li>
+            </ol>
+            <p class="micro-copy">如果提示缺少 WebView2，请安装微软 WebView2 Runtime，或使用下载中心提供的内置 WebView2 版本。</p>
+          </div>
+          <figure class="screenshot-slot">
+            <div class="shot-toolbar"><span></span><span></span><span></span><small>界面示意 · 非真实截图</small></div>
+            <div class="installer-mock">
+              <div class="installer-icon">CV</div>
+              <h4>安装 Clash Verge</h4>
+              <p>选择安装位置并完成安装</p>
+              <div class="install-progress"><i></i></div>
+              <div class="installer-actions"><span>取消</span><b>安装</b></div>
+            </div>
+            <figcaption>安装界面会因版本不同略有变化，请以下载中心当前稳定版为准。</figcaption>
+          </figure>
+        </article>
+
+        <article class="detail-step">
+          <div class="detail-copy">
+            <span class="detail-number">步骤 03 · ACCOUNT</span>
+            <h3>登录边界云用户中心</h3>
+            <ol>
+              <li>打开边界云官网并点击“登录”。</li>
+              <li>进入用户中心，确认套餐状态为“生效中”。</li>
+              <li>检查剩余流量和到期时间。</li>
+              <li>点击当前订阅的“查看详情”。</li>
+            </ol>
+            <div class="notice"><strong>隐私提醒</strong><span>公开截图前必须遮住账号、昵称、到期时间、订单信息和其他可识别内容。</span></div>
+          </div>
+          <figure class="screenshot-slot">
+            <div class="shot-toolbar"><span></span><span></span><span></span><small>真实截图 · 已脱敏</small></div>
+            <img class="tutorial-shot" src="./assets/tutorial/01-account-redacted.png" alt="边界云用户中心账户与订阅概览，账号和日期等敏感信息已遮挡" loading="lazy">
+            <figcaption>确认套餐有效后，进入订阅详情获取 Clash Meta 订阅链接。</figcaption>
+          </figure>
+        </article>
+
+        <article class="detail-step reverse">
+          <div class="detail-copy">
+            <span class="detail-number">步骤 04 · SUBSCRIPTION</span>
+            <h3>复制你的专属订阅地址</h3>
+            <ol>
+              <li>登录边界云用户中心。</li>
+              <li>进入“订阅”或“我的服务”。</li>
+              <li>找到 Clash 订阅并点击复制。</li>
+            </ol>
+            <div class="notice"><strong>隐私提醒</strong><span>订阅链接相当于连接凭证，截图前必须遮住完整地址。</span></div>
+          </div>
+          <figure class="screenshot-slot">
+            <div class="shot-toolbar"><span></span><span></span><span></span><small>真实截图 01</small></div>
+            <img class="tutorial-shot" src="./assets/tutorial/02-subscription-url-redacted.png" alt="边界云用户中心 Clash Meta 订阅链接位置，敏感链接和二维码已完整遮挡" loading="lazy">
+            <figcaption>在用户中心复制 Clash 订阅地址，不要直接公开链接内容。</figcaption>
+          </figure>
+        </article>
+
+        <article class="detail-step" id="import">
+          <div class="detail-copy">
+            <span class="detail-number">步骤 05 · PROFILES</span>
+            <h3>在 Profiles 页面导入订阅</h3>
+            <ol>
+              <li>打开 Clash 客户端，进入 Profiles / 配置页面。</li>
+              <li>在订阅地址输入框粘贴链接。</li>
+              <li>点击 Import、Download 或“导入”。</li>
+              <li>等待配置卡片出现，并设为当前配置。</li>
+            </ol>
+            <p class="micro-copy">如果提示下载失败，先检查订阅是否有效，再确认 Windows 时间与网络正常。</p>
+          </div>
+          <figure class="screenshot-slot">
+            <div class="shot-toolbar"><span></span><span></span><span></span><small>真实截图 02</small></div>
+            <img class="tutorial-shot" src="./assets/tutorial/04-profiles-redacted.png" alt="Clash Verge 订阅页面，订阅卡片中的敏感信息已完整遮挡" loading="lazy">
+            <figcaption>粘贴订阅地址并导入，看到配置卡片后再进行下一步。</figcaption>
+          </figure>
+        </article>
+
+        <article class="detail-step reverse">
+          <div class="detail-copy">
+            <span class="detail-number">步骤 06 · UPDATE</span>
+            <h3>设为当前配置并更新订阅</h3>
+            <ol>
+              <li>在订阅卡片上点击，使它成为当前配置。</li>
+              <li>点击右上角刷新按钮更新订阅。</li>
+              <li>确认没有出现下载失败或格式错误。</li>
+              <li>以后节点发生变化时，也在这里手动更新。</li>
+            </ol>
+            <p class="micro-copy">订阅链接失效、套餐到期或本地网络异常，都可能导致更新失败。</p>
+          </div>
+          <figure class="screenshot-slot">
+            <div class="shot-toolbar"><span></span><span></span><span></span><small>真实截图 · 已脱敏</small></div>
+            <img class="tutorial-shot" src="./assets/tutorial/04-profiles-redacted.png" alt="Clash Verge 订阅配置页面和右上角刷新按钮，订阅信息已遮挡" loading="lazy">
+            <figcaption>右上角圆形箭头用于更新当前订阅；更新成功后再进入代理页面。</figcaption>
+          </figure>
+        </article>
+
+        <article class="detail-step">
+          <div class="detail-copy">
+            <span class="detail-number">步骤 07 · PROXIES</span>
+            <h3>测速并选择合适的节点</h3>
+            <ol>
+              <li>进入 Proxies / 代理页面。</li>
+              <li>点击测速图标，等待延迟结果。</li>
+              <li>新手可选“自动选择”，也可选择低延迟节点。</li>
+              <li>日常使用优先选择香港、日本或新加坡线路。</li>
+            </ol>
+            <div class="legend"><span><i class="good"></i>延迟较低</span><span><i class="medium"></i>可以使用</span><span><i class="bad"></i>建议切换</span></div>
+          </div>
+          <figure class="screenshot-slot">
+            <div class="shot-toolbar"><span></span><span></span><span></span><small>真实截图 03</small></div>
+            <img class="tutorial-shot" src="./assets/tutorial/03-proxies.png" alt="Clash Verge 代理页面中的节点列表和延迟测速结果" loading="lazy">
+            <figcaption>延迟只是参考；若实际访问较慢，可换一个节点再次测试。</figcaption>
+          </figure>
+        </article>
+
+        <article class="detail-step reverse">
+          <div class="detail-copy">
+            <span class="detail-number">步骤 08 · SYSTEM PROXY</span>
+            <h3>开启系统代理，完成连接</h3>
+            <ol>
+              <li>返回 General / 首页或设置页面。</li>
+              <li>将 Mode / 模式设为 Rule / 规则。</li>
+              <li>打开 System Proxy / 系统代理。</li>
+              <li>访问网页测试；不用时关闭系统代理即可。</li>
+            </ol>
+            <div class="success-state"><span>✓</span><div><strong>完成标志</strong><small>系统代理已开启，节点已选中，网页可以正常加载。</small></div></div>
+          </div>
+          <figure class="screenshot-slot">
+            <div class="shot-toolbar"><span></span><span></span><span></span><small>界面示意 · 等待真实截图</small></div>
+            <div class="clash-home-mock">
+              <div class="mock-sidebar"><b>Clash Verge</b><span class="active">首页</span><span>代理</span><span>订阅</span><span>设置</span></div>
+              <div class="mock-main">
+                <small>运行模式</small><div class="mock-select">规则模式 <b>⌄</b></div>
+                <div class="mock-switch-row"><span><b>系统代理</b><small>将浏览器和应用流量交给 Clash</small></span><i class="switch-on"></i></div>
+                <div class="mock-switch-row"><span><b>开机自启</b><small>可按需要开启</small></span><i></i></div>
+              </div>
+            </div>
+            <figcaption>推荐规则模式；只有排查问题时才临时尝试全局模式。</figcaption>
+          </figure>
+        </article>
+
+        <article class="detail-step">
+          <div class="detail-copy">
+            <span class="detail-number">步骤 09 · VERIFY</span>
+            <h3>验证连接并学会正确关闭</h3>
+            <ol>
+              <li>打开浏览器访问常用网页，确认能够正常加载。</li>
+              <li>观察 Clash 左下角是否出现上传和下载流量。</li>
+              <li>如果无法访问，依次更新订阅、切换节点并重开系统代理。</li>
+              <li>不使用时关闭“系统代理”；不要直接强制结束程序。</li>
+            </ol>
+            <div class="success-state"><span>✓</span><div><strong>配置完成</strong><small>订阅可更新、节点已选择、系统代理开启且网页可以加载。</small></div></div>
+          </div>
+          <figure class="verify-panel">
+            <span class="terminal-title">CONNECTION CHECK</span>
+            <div class="check-row"><span>01</span><p>订阅配置</p><strong>更新成功</strong></div>
+            <div class="check-row"><span>02</span><p>节点延迟</p><strong>正常</strong></div>
+            <div class="check-row"><span>03</span><p>代理模式</p><strong>规则</strong></div>
+            <div class="check-row"><span>04</span><p>系统代理</p><strong>已开启</strong></div>
+            <div class="check-row"><span>05</span><p>网页访问</p><strong>正常</strong></div>
+          </figure>
         </article>
       </div>
     </section>
@@ -152,6 +375,7 @@
         <details><summary><span>04</span>香港、日本、新加坡节点应该怎么选？<i>＋</i></summary><p>优先选择延迟低、负载低的节点，实际速度还会受到本地网络和高峰时段影响。</p></details>
         <details><summary><span>05</span>Clash 全局代理和规则模式有什么区别？<i>＋</i></summary><p>规则模式会自动分流，更适合日常使用；全局模式会让大部分连接都经过代理。</p></details>
         <details><summary><span>06</span>如何更新 Clash 订阅和节点列表？<i>＋</i></summary><p>进入订阅或配置页面，找到当前订阅并点击更新。不要将完整订阅地址发送到公开 Issue。</p></details>
+        <details><summary><span>07</span>边界云加速器的官方网站是什么？<i>＋</i></summary><p>目前仅有 <a href="https://www.bianjiecloud.com/">www.bianjiecloud.com</a> 和 <a href="https://www.lvpn.cc/">www.lvpn.cc</a> 两个官方网站。其他相似域名不要登录、付款或粘贴订阅链接。</p></details>
       </div>
     </section>
 
@@ -161,7 +385,7 @@
     </section>
 
     <footer>
-      <a class="brand footer-brand" href="https://www.lvpn.cc/"><span class="brand-mark">边</span><span><strong>边界云加速器</strong><small>Encrypted · Routed · Delivered</small></span></a>
+      <a class="footer-logo" href="https://www.lvpn.cc/"><img src="./assets/brand/lvpn-logo.png" alt="LVPN 边界云加速官方 Logo"></a>
       <p>本教程中的 Clash 为第三方开源客户端。请遵守所在地法律法规及相关软件许可协议。</p>
       <div><a href="https://www.lvpn.cc/">官方网站</a><a href="https://www.lvpn.cc/downloads">下载中心</a><a href="https://www.lvpn.cc/help">帮助中心</a><a href="https://t.me/lvpn_support">联系客服</a></div>
     </footer>
